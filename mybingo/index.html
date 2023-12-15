@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mybingo</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        th, td{
+            background-color: pink;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .marked{
+            background-color: gold;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <label for="bingoSize">ビンゴシートのサイズ:</label>
+    <select name="bingoSize" id="bingoSize">
+        <option value="5">5x5</option>
+        <option value="4">4x4</option>
+        <option value="3">3x3</option>
+    </select>
+    <button id="applySettings">設定適用</button>
+    <table>
+        <thead>
+            <tr>
+                <th>B</th>
+                <th>I</th>
+                <th>N</th>
+                <th>G</th>
+                <th>O</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="randomNumberDisplay">ランダムな数字: <span id="randomNumber"></span></div>
+    <button id="generateNumber">数字を生成</button>
+    <button id="resetGame">ゲームをリセット</button>
+
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/underscore.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+    <script src="js/ex-main.js"></script>
+</body>
+</html>
