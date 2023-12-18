@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mystopwatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="timer" class="btn">00:00.000</div>
+        <div class="controls">
+            <div id="start" class="btn">start</div>
+            <div id="stop" class="btn">stop</div>
+            <div id="reset" class="btn">reset</div>
+            <div id="lap" class="btn">lap</div>
+        </div>
+        <div class="countdown-controls">
+            <input type="text" name="countdown-time" id="countdown-time" placeholder="mm:ss">
+            <div id="countdown-start" class="btn">Start Countdown</div>
+            <div id="down-stop" class="btn">stop</div>
+            <div id="down-reset" class="btn">reset</div>
+        </div>
+        <div id="laps" class="laps"></div>
+        <div id="logs" class="logs"></div>
+    </div>
+
+
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/underscore.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script src="js/ex-main.js"></script> -->
+</body>
+</html>
