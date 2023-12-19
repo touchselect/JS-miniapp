@@ -7,6 +7,7 @@
     const $reset = $('#reset');
     const $lap = $('#lap');
     const $countdown = $('#countdown-start');
+    const $downResume = $('#down-resume');
     const $downStop = $('#down-stop');
     const $downReset = $('#down-reset');
 
@@ -57,11 +58,43 @@
 
     $countdown.click(function() {
         const timeInput = $('#countdown-time').val();
+        setButtonStateCountdown();
         startCountdown(timeInput);
     });
 
-    // !ここから実装
-    // $downStop.click()
+    $downResume.click(function() {
+        if($(this).hasClass('inactive')){
+            return;
+        }
+        setButtonStateCountdown();
+        startTime = Date.now();
+        countDown(remainingTime);
+    });
+
+    $downStop.click(function() {
+        if($(this).hasClass('inactive')){
+            return;
+        }
+        clearTimeout(timeoutId);
+        remainingTime -= (Date.now() - startTime);
+        setButtonStateCountdownStopped();
+    });
+
+    $downReset.click(function() {
+        if($(this).hasClass('inactive')){
+            return;
+        }
+        clearTimeout(timeoutId);
+        remainingTime = 0;
+        setButtonStateInitial();
+        $timer.text('00:00.000');
+        $('#countdown-time').val('');
+    });
+
+    $('#theme-selector').change(function(){
+        const selectedTheme = $(this).val();
+        changeTheme(selectedTheme);
+    });
 
 
 
@@ -84,6 +117,9 @@
         $reset.addClass('inactive');
         $lap.addClass('inactive');
         $countdown.removeClass('inactive');
+        $downResume.addClass('inactive');
+        $downStop.addClass('inactive');
+        $downReset.addClass('inactive');
     }
 
     function setButtonStateRunning() {
@@ -92,6 +128,9 @@
         $reset.addClass('inactive');
         $lap.removeClass('inactive');
         $countdown.addClass('inactive');
+        $downResume.addClass('inactive');
+        $downStop.addClass('inactive');
+        $downReset.addClass('inactive');
     }
 
     function setButtonStateStopped() {
@@ -100,6 +139,9 @@
         $reset.removeClass('inactive');
         $lap.addClass('inactive');
         $countdown.addClass('inactive');
+        $downResume.addClass('inactive');
+        $downStop.addClass('inactive');
+        $downReset.addClass('inactive');
     }
 
     function setButtonStateCountdown() {
@@ -108,6 +150,20 @@
         $reset.addClass('inactive');
         $lap.addClass('inactive');
         $countdown.addClass('inactive');
+        $downResume.addClass('inactive');
+        $downStop.removeClass('inactive');
+        $downReset.addClass('inactive');
+    }
+
+    function setButtonStateCountdownStopped() {
+        $start.addClass('inactive');
+        $stop.addClass('inactive');
+        $reset.addClass('inactive');
+        $lap.addClass('inactive');
+        $countdown.addClass('inactive');
+        $downResume.removeClass('inactive');
+        $downStop.addClass('inactive');
+        $downReset.removeClass('inactive');
     }
 
     function addTimeLog() {
@@ -132,7 +188,7 @@
     }
 
     function countDown(totalTime) {
-        const remainingTime = totalTime - (Date.now() - startTime);
+        remainingTime = totalTime - (Date.now() - startTime);
         if(remainingTime <= 0){
             setButtonStateInitial();
             $timer.text('00:00.000');
@@ -148,5 +204,9 @@
         timeoutId = setTimeout(() => {
             countDown(totalTime);
         }, 10);
+    }
+
+    function changeTheme(theme){
+        $('body').removeClass().addClass(theme);
     }
 }

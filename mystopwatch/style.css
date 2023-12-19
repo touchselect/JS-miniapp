@@ -79,15 +79,38 @@ body {
     border-radius: 5px;
 }
 
+.countdown-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
 #countdown-time {
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    width: 80px; /* 幅の調整 */
-}
-
-.countdown-controls {
+    width: 100px;
+    margin-right: 10px;
     margin-top: 20px;
-    text-align: center;
 }
 
+.countdown-controls .btn {
+    padding: 10px 15px;
+    margin: 0 5px;
+}
+
+.dark {
+    background-color: #333;
+    color: white;
+}
+
+.light {
+    background-color: #fff;
+    color: black;
+}
+
+.colorful {
+    background-color: #ff6347;
+    color: yellow;
+}

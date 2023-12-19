@@ -8,6 +8,15 @@
 </head>
 <body>
     <div class="container">
+        <div class="theme-controls">
+            <select id="theme-selector">
+                <option value="default">Default</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+                <option value="colorful">Colorful</option>
+            </select>
+        </div>
+
         <div id="timer" class="btn">00:00.000</div>
         <div class="controls">
             <div id="start" class="btn">start</div>
@@ -15,9 +24,10 @@
             <div id="reset" class="btn">reset</div>
             <div id="lap" class="btn">lap</div>
         </div>
+        <input type="text" name="countdown-time" id="countdown-time" placeholder="mm:ss">
         <div class="countdown-controls">
-            <input type="text" name="countdown-time" id="countdown-time" placeholder="mm:ss">
-            <div id="countdown-start" class="btn">Start Countdown</div>
+            <div id="countdown-start" class="btn">countdown</div>
+            <div id="down-resume" class="btn">resume</div>
             <div id="down-stop" class="btn">stop</div>
             <div id="down-reset" class="btn">reset</div>
         </div>
