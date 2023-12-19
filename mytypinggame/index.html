@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイピングゲーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <select id="level-selector">
+            <option value="">難易度を選択してください</option>
+            <option value="easy">簡単</option>
+            <option value="medium">普通</option>
+            <option value="hard">難しい</option>
+            <option value="veryHard">鬼</option>
+        </select>
+        <p id="timer" class="timer"></p>
+        <p id="high-score"></p>
+        <p id="score">Score: 0</p>
+        <p id="accuracy">Accuracy: 0%</p>
+        <p id="target" class="target">Click to Start!!!</p>
+        <p id="result" class="result"></p>
+    </div>
+
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/underscore.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script src="js/ex-main.js"></script> -->
+</body>
+</html>
